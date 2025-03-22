@@ -44,6 +44,21 @@ app.delete("/movies/:id", async (req, res) => {
   res.status(200).send(updatedMovies);
 });
 
+// PUT
+app.put("/movies/:id", async (req, res) => {
+  console.log("hitting the put endpoint...");
+  console.log("req.params", req.params);
+  console.log("req.body", req.body);
+
+  const newMovie = { ...req.body, ...req.params };
+  const idToFind = Number(req.params.id);
+  let movies = await readMovies();
+  const movieIndex = movies.findIndex((movie) => movie.id === idToFind);
+  movies.splice(movieIndex, 1, newMovie);
+
+  res.status(200).send({ success: true });
+});
+
 let readMovies = async () => {
   let movies = await fs.readFile(
     path.join(__dirname, "data", "movies.json"),

@@ -19,5 +19,12 @@
     "certificate": "15",
     "yearOfRelease": 1993,
     "director": "Steven Spielberg"
+  },
+  {
+    "id": 4,
+    "title": "Titanic",
+    "certificate": "17",
+    "yearOfRelease": 1999,
+    "director": "James Cameron"
   }
 ]
